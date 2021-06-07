@@ -3,11 +3,11 @@ import "./styles.css";
 
 import apiKey from "./helper/apiKey";
 import NewQuoteButton from "./components/NewQuoteButton";
-import Quote from "./components/Quote";
-import QuoteSource from "./components/QuoteSource";
+//import Quote from "./components/Quote";
+//import QuoteSource from "./components/QuoteSource";
 
 export default function App() {
-  const [quote, setQuote] = useState({});
+  const [quote, setQuote] = useState([]);
 
   useEffect(() => {
     fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
@@ -26,9 +26,9 @@ export default function App() {
 
   return (
     <div className="App">
-      <Quote quote={quote.content} />
-      <QuoteSource source={quote.originator.name} />
+      <blockquote>{quote.content}</blockquote>
       <NewQuoteButton />
     </div>
   );
 }
+//<cite>{quote.originator.id}</cite>
