@@ -32,9 +32,9 @@ const App = () => {
   };
 
   return (
-    <div className="App" id="quote-box">
+    <main className="App" id="quote-box">
       {Object.keys(quote).length === 6 ? (
-        <div>
+        <div className="quote-container">
           <Quote quote={quote.content} />
           <QuoteSource source={quote.originator["name"]} />
         </div>
@@ -43,7 +43,7 @@ const App = () => {
       )}
       <Twitter />
       <NewQuoteButton getNewQuote={getNewQuote} />
-    </div>
+    </main>
   );
 };
 

@@ -1,8 +1,28 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-  width: 400px;
-  height: 200px;
-  border: solid 1px black;
+  background-color: lightblue;
   margin: 0 auto;
+  display: grid;
+  grid-gap: 20px;
+}
+
+.quote-container {
+  grid-column: 1 / span 2;
+}
+
+#tweet-quote {
+  width: 25px;
+  margin: 0 auto;
+}
+
+#twitter-icon {
+  width: 25px;
+}
+
+#new-quote {
+  border: none;
+  width: 200px;
+  margin: 0 auto;
+  cursor: pointer;
 }

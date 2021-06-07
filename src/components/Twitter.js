@@ -3,7 +3,7 @@ import twitterIcon from "../twitter_icon.png";
 const Twitter = () => {
   return (
     <a href="twitter.com/intent/tweet" id="tweet-quote">
-      <img src={twitterIcon} alt="twitter icon" />
+      <img src={twitterIcon} alt="twitter icon" id="twitter-icon" />
     </a>
   );
 };
