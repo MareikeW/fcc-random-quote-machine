@@ -1,4 +1,13 @@
+<<<<<<< CodeSandbox
+# Ignore API Key and API Url
+=======
 # Ignore Apikey
+>>>>>>> GitHub
 
+<<<<<<< CodeSandbox
+API_KEY.*
+API_URL.*
+=======
 /API_KEY.js
 /API_URL.js
+>>>>>>> GitHub

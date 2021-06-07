@@ -1,5 +1,5 @@
 const Quote = ({ quote }) => {
-  return <blockquote>"{quote}"</blockquote>;
+  return <blockquote id="text">"{quote}"</blockquote>;
 };
 
 export default Quote;

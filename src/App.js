@@ -3,9 +3,12 @@ import "./styles.css";
 
 import API_KEY from "./helper/API_KEY";
 import API_URL from "./helper/API_URL";
-//import NewQuoteButton from "./components/NewQuoteButton";
-//import Quote from "./components/Quote";
-//import QuoteSource from "./components/QuoteSource";
+
+import Twitter from "./components/Twitter";
+import NewQuoteButton from "./components/NewQuoteButton";
+import Quote from "./components/Quote";
+import QuoteSource from "./components/QuoteSource";
+import QuoteNotFound from "./components/QuoteNotFound";
 
 const App = () => {
   const [quote, setQuote] = useState([]);
@@ -29,15 +32,17 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      {quote.length === undefined ? (
+    <div className="App" id="quote-box">
+      {Object.keys(quote).length === 6 ? (
         <div>
-          <blockquote>{quote.content}</blockquote>
-          <cite>{quote.originator["name"]}</cite>
+          <Quote quote={quote.content} />
+          <QuoteSource source={quote.originator["name"]} />
         </div>
-      ) : null}
-
-      <button onClick={() => getNewQuote()}>New Quote</button>
+      ) : (
+        <QuoteNotFound />
+      )}
+      <Twitter />
+      <NewQuoteButton getNewQuote={getNewQuote} />
     </div>
   );
 };
