@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 
-import apiKey from "./helper/apiKey";
-import NewQuoteButton from "./components/NewQuoteButton";
+import API_KEY from "./helper/API_KEY";
+import API_URL from "./helper/API_URL";
+//import NewQuoteButton from "./components/NewQuoteButton";
 //import Quote from "./components/Quote";
 //import QuoteSource from "./components/QuoteSource";
 
-export default function App() {
+const App = () => {
   const [quote, setQuote] = useState([]);
 
   useEffect(() => {
-    fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
+    getNewQuote();
+  }, []);
+
+  const getNewQuote = () => {
+    fetch(API_URL, {
       method: "GET",
       headers: {
-        "x-rapidapi-key": apiKey,
+        "x-rapidapi-key": API_KEY,
         "x-rapidapi-host": "quotes15.p.rapidapi.com"
       }
     })
@@ -21,14 +26,20 @@ export default function App() {
       .then((data) => {
         setQuote(data);
       });
-  }, []);
-  console.log(quote);
+  };
 
   return (
     <div className="App">
-      <blockquote>{quote.content}</blockquote>
-      <NewQuoteButton />
+      {quote.length === undefined ? (
+        <div>
+          <blockquote>{quote.content}</blockquote>
+          <cite>{quote.originator["name"]}</cite>
+        </div>
+      ) : null}
+
+      <button onClick={() => getNewQuote()}>New Quote</button>
     </div>
   );
-}
-//<cite>{quote.originator.id}</cite>
+};
+
+export default App;
